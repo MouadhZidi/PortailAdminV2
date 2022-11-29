@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { GuardauthService } from 'src/app/guard/guardauth.service';
+import { AutorisationComponent } from './autorisation/autorisation/autorisation.component';
 import { PointageComponent } from './pointage/pointage.component';
 import { RetardComponent } from './retard/retard/retard.component';
 
@@ -16,6 +17,11 @@ const routes: Routes = [
         path: 'retard',
         component: RetardComponent,canActivate:[GuardauthService]
     },
+    {
+        path: 'autorisation',
+        component: AutorisationComponent,canActivate:[GuardauthService]
+    }
+  
   
 ];
 

@@ -326,89 +326,21 @@
                         
                         <h4 class="card-title mb-4">Mode de payement</h4>   <h4 style=color:#2a3042> Matricule: {{perso11.mat_pers}}</h4>
 
-  
+                        <app-comptepers ></app-comptepers>
+
                         <div class="table-responsive">
-                          <table class="table table-centered mb-0 table-nowrap">
-                            <thead class="table-light">
-                              <tr>
-                                <th scope="col">Bullettin</th>
-                                <th scope="col">Libelle</th>
-                                <th scope="col">Mode de payement</th>
-                                <th scope="col">Date</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr *ngFor="let item of perso11.mode_payement">
-                                <td>{{item.cod_typ_bul}} </td>
-                                <td >{{item.lib_bul}}</td>
-                                <td *ngIf="item.cod_pay=='V'">Virement</td>
-                                <td *ngIf="item.cod_pay=='E'">Especes</td>
-                                <td *ngIf="item.cod_pay=='C'">Chéque</td>
-              
-                                <td>{{item.date_modp}}</td>
-                                
-              
-                              </tr>
-                            
-                            
-                          
-                           
-                            </tbody>
-                          </table>
+
                           
   
                         </div>
                       </div>
                     </div>
-                    <div class="row mt-4">
-                        
-                      <div class="col-sm-6">
 
-                      
-                      </div> <!-- end col -->
-                      <div class="col-sm-6">
-                        <div class="text-end">
-                        
-                        </div>
-                      </div> 
-                      <!-- end col -->
-                    </div>
-                    
                   </div>
                   
 
                 </div>
-                <div class="card">
-                    <div class="card-body">
-                      <div class="card shadow-none border mb-0">
-                        <div class="card-body">
-                          <h4 class="card-title mb-4">Mode de payement</h4>
-                          <app-comptepers ></app-comptepers>
-
-    
-                          
-    
-                        </div>
-                      </div>
-
-                      <div class="row mt-4">
-                          
-                        <div class="col-sm-6">
-  
-                        
-                        </div> <!-- end col -->
-                        <div class="col-sm-6">
-                          <div class="text-end">
-                          
-                          </div>
-                        </div> 
-                        <!-- end col -->
-                      </div>
-                      
-                    </div>
-                    
-  
-                  </div>
+ 
   
               </ng-template>
             </li>

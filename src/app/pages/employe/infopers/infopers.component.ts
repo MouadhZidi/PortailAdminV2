@@ -33,6 +33,7 @@ conjoint:any=[]
   mat:any
 h:string="10908"
   x:string="01"
+  n:any
   perso11 :any = {
     cod_soc:this.token.getUser().cod_soc,
     mat_pers:this.token.getUser().matpers}
@@ -58,7 +59,12 @@ h:string="10908"
         this.perso11 = data; console.log('exected' + data);
        this.adrpersbycodeandmat=this.perso11.adresses_personnel
        this.rens=this.perso11.rens_pers
-        
+        this.n=this.perso11.cod_serv
+        console.log(this.n)
+        console.log(this.n)
+        console.log(this.n)
+        console.log(this.n)
+
       },
       err => {
         console.log(err);

@@ -11,12 +11,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PointageComponent } from './pointage/pointage.component';
 import { PointageRoutingModule } from './pointage-routing.module';
 import { RetardComponent } from './retard/retard/retard.component';
+import { AutorisationComponent } from './autorisation/autorisation/autorisation.component';
 
 
 @NgModule({
   declarations: [
    PointageComponent,
-   RetardComponent
+   RetardComponent,
+   AutorisationComponent
   ],
   imports: [
     CommonModule,

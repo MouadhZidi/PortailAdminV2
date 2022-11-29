@@ -122,6 +122,14 @@ export class DemandeFormationComponent implements OnInit {
        floatingFilter: true,
  
      },
+     {
+      headerName: "Reponse chef",
+      field: "reponseChef",
+      editable: true,
+      filter:true,
+      floatingFilter: true,
+
+    },
      
      {
        headerName: "Fichier",

@@ -60,6 +60,71 @@ const userGridData = [
         projects: ['Php', 'Java', 'Python'],
         email: 'colin@skote.com'
     },
+    {
+        id: 8,
+        image: 'assets/images/users/avatar-5.jpg',
+        name: 'Colin Melton',
+        designation: 'Backend Developer',
+        projects: ['Php', 'Java', 'Python'],
+        email: 'colin@skote.com'
+    },
+    {
+        id: 8,
+        image: 'assets/images/users/avatar-5.jpg',
+        name: 'Colin Melton',
+        designation: 'Backend Developer',
+        projects: ['Php', 'Java', 'Python'],
+        email: 'colin@skote.com'
+    },
+    {
+        id: 8,
+        image: 'assets/images/users/avatar-5.jpg',
+        name: 'Colin Melton',
+        designation: 'Backend Developer',
+        projects: ['Php', 'Java', 'Python'],
+        email: 'colin@skote.com'
+    },
+    {
+        id: 8,
+        image: 'assets/images/users/avatar-5.jpg',
+        name: 'Colin Melton',
+        designation: 'Backend Developer',
+        projects: ['Php', 'Java', 'Python'],
+        email: 'colin@skote.com'
+    },
+    {
+        id: 8,
+        image: 'assets/images/users/avatar-5.jpg',
+        name: 'Colin Melton',
+        designation: 'Backend Developer',
+        projects: ['Php', 'Java', 'Python'],
+        email: 'colin@skote.com'
+    },
+    {
+        id: 8,
+        image: 'assets/images/users/avatar-5.jpg',
+        name: 'Colin Melton',
+        designation: 'Backend Developer',
+        projects: ['Php', 'Java', 'Python'],
+        email: 'colin@skote.com'
+    },
+    {
+        id: 8,
+        image: 'assets/images/users/avatar-5.jpg',
+        name: 'Colin Melton',
+        designation: 'Backend Developer',
+        projects: ['Php', 'Java', 'Python'],
+        email: 'colin@skote.com'
+    },
+    {
+        id: 8,
+        image: 'assets/images/users/avatar-5.jpg',
+        name: 'Colin Melton',
+        designation: 'Backend Developer',
+        projects: ['Php', 'Java', 'Python'],
+        email: 'colin@skote.com'
+    },
+    
 ];
 
 export { userGridData };

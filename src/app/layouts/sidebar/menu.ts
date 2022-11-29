@@ -315,24 +315,32 @@ export const MENU: MenuItem[] = [
             text: 'MENUITEMS.EMAIL.LIST.TEMPLATE.BADGE',
         },
         subItems: [
-            // {
-            //     id: 53,
-            //     label: 'MENUITEMS.BLOG.LIST.BLOGLIST',
-            //     link: '/blog/list',
-            //     parentId: 52
-            // },
+            {
+                id: 53,
+                label: 'Ajouter evenement',
+                link: '/blog/list',
+                parentId: 52
+            },
+            {
+                id: 56,
+                label: 'Liste des évenements',
+                link: '/blog/getbyD',
+                parentId: 52
+            },
             {
                 id: 54,
-                label: 'Infos. Evenement',
+                label: 'Historique des évenements',
                 link: '/blog/grid',
                 parentId: 52
             },
+            
             // {
             //     id: 55,
             //     label: 'MENUITEMS.BLOG.LIST.DETAIL',
             //     link: '/blog/detail',
             //     parentId: 52
             // },
+           
         ]
     },
     // {
@@ -845,9 +853,58 @@ export const MENU: MenuItem[] = [
                     label: 'Consultation retard',
                     link: '/pointage/retard',
                     parentId: 126
+                },
+                {
+                    id: 129,
+                    label: 'Consultation autorisation',
+                    link: '/pointage/autorisation',
+                    parentId: 126
                 }
               
               
+            ]
+        },
+
+        {
+            id: 127,
+            label: 'Espace Chef',
+            icon: 'bx bx-user-pin',
+            subItems: [
+                {
+                    id: 129,
+                    label: 'Consultation espace chef',
+                    link: '/EspaceChef/Chef',
+                    parentId: 127
+                },
+               
+              
+                {
+                    id: 130,
+                    label: 'Consultation historique ',
+                    link: '/EspaceChef/historique',
+                    parentId: 127
+                },
+            ]
+        },
+        {
+            id: 128,
+            label: 'Espace Rh',
+            icon: 'bx bx-user-pin',
+            subItems: [
+                {
+                    id: 130,
+                    label: 'Consultation espace Rh',
+                    link: '/EspaceRh/Rh',
+                    parentId: 128
+                },
+               
+              
+                {
+                    id: 131,
+                    label: 'Consultation historique ',
+                    link: '/EspaceRh/historique',
+                    parentId: 128
+                },
             ]
         }
 ];

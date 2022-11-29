@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { GridApi } from "ag-grid-community";
+import { GridApi, SelectionChangedEvent } from "ag-grid-community";
+import { MasterDetailModule } from '@ag-grid-enterprise/master-detail';
 import { ClientSideRowModelModule } from "@ag-grid-community/client-side-row-model";
 import { Module } from "@ag-grid-community/core";
 import { TokenStorage } from 'src/app/core/services/token-storage.service';
 import { ComptepersService } from '../comptepers.service';
+import { PersonnelService } from '../personnel.service';
 @Component({
   selector: 'app-comptepers',
   templateUrl: './comptepers.component.html',
@@ -12,15 +14,88 @@ import { ComptepersService } from '../comptepers.service';
 export class ComptepersComponent implements OnInit {
   x:any
   list:any=[]
-
+   gridApi;
+   gridColumnApi;
+    rowSelection;
+    gridOpen:boolean
+   columnDefs;
+   defaultColDef;
+   detailCellRendererParams;
   title = "grid";
   api!: GridApi;
   rowData: any[] = [];
+  perso11 :any = {
+    cod_soc:this.tokenService.getUser().cod_soc,
+    mat_pers:this.tokenService.getUser().matpers}
+  constructor(private serve:PersonnelService,private serv: ComptepersService,private tokenService:TokenStorage) {
 
-  constructor(private serv: ComptepersService,private tokenService:TokenStorage) {
+    this.columnDefs = [
+      {
+        headerName: "code type bulletin",
+        field: "date_modp",
+        editable: true,
+        resizable: true,
+        sortable: true,
+        filter: true,
+        floatingFilter: true,
+        width: 200,
+      },
+      {
+        headerName: "Compte banque personnel",
+        field: "lib_bul",
+        editable: true,
+        resizable: true,
+        sortable: true,
+        filter: true,
+        floatingFilter: true,
+        width: 230,
+      },
+      
+      
+      {
+        headerName: "Libellé bulletin",
+        field: "cod_pay",
+        editable: true,
+        resizable: true,
+        sortable: true,
+        filter: true,
+        floatingFilter: true,
+        width: 150,
+        
+       
+      },
+      {
+        headerName: "Code Banque",
+        field: "cod_typ_bul",
+        editable: true,
+        resizable: true,
+        sortable: true,
+        filter: true,
+        floatingFilter: true,
+        width: 170,
+        
+       
+      },
+
+      
+    ];
+  
+    this.defaultColDef = {
+      flex: 1,
+      minWidth: 100,
+    };
+    this.rowSelection = 'single';
     
   }
-  columnDefs = [
+  
+  
+
+  ngOnInit() {
+    this.GetConge();
+    this.GetConge22()
+
+  }
+  columnDefss = [
     {
       headerName: "code type bulletin",
       field: "cod_typ_bul",
@@ -165,15 +240,47 @@ export class ComptepersComponent implements OnInit {
     },
 
   ];
+  
+  onSelectionChanged(event:SelectionChangedEvent) {
+    var selectedRows = this.gridApi.getSelectedRows();
+    var selectedRowsString = "";
+    selectedRows.forEach(function(selectedRow, index) {
+      if (index !== 0) {
+        selectedRowsString += ", ";
+      }
+      selectedRowsString += selectedRow.cod_typ_bul;
 
-  ngOnInit() {
-    this.GetConge();
-    this.GetConge22()
+    });
+
+    this.serv.getEnfant(this.tokenService.getUser().cod_soc,this.tokenService.getUser().matpers,selectedRowsString).subscribe(
+      (data: any[]) => {
+        this.rowData = data;
+
+        console.log(data);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+    document.querySelector("#selectedRows").innerHTML = selectedRowsString;
+    this.gridOpen = !this.gridOpen;
+
   }
-  defaultColDef = {
-    sortable: true,
-    filter: true,
-  };
+
+  getpers(params){
+    this.gridApi = params.api;
+    this.gridColumnApi = params.columnApi;
+    this.serve.getpersonnel(this.perso11).subscribe(
+      data => {
+        this.perso11 = data; console.log('exected' + data);
+        console.log(this.perso11);
+
+      },
+      err => {
+        console.log(err);
+      }
+      );}
+  
   /* getFacture() {
     this.factureService.GetChambreByCode().subscribe(
       (data: any[]) => {
@@ -187,6 +294,17 @@ export class ComptepersComponent implements OnInit {
     );
   }
  */
+
+  /**                                <td>{{item.cod_typ_bul}} </td>
+                                <td >{{item.lib_bul}}</td>
+                                <td *ngIf="item.cod_pay=='V'">Virement</td>
+                                <td *ngIf="item.cod_pay=='E'">Especes</td>
+                                <td *ngIf="item.cod_pay=='C'">Chéque</td>
+              
+                                <td>{{item.date_modp}}</td> */
+                                
+
+
   GetConge() {
     this.serv.getEnfant(this.tokenService.getUser().cod_soc,this.tokenService.getUser().matpers,this.x).subscribe(
       (data: any[]) => {
@@ -217,5 +335,6 @@ export class ComptepersComponent implements OnInit {
     this.api.setQuickFilter($event.target.value);
 }
 
-  modules: Module[] = [ClientSideRowModelModule];
+
+  modules: Module[] = [ClientSideRowModelModule,MasterDetailModule];
 }

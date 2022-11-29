@@ -37,4 +37,11 @@ export class PointageService {
   };
   
 
+  GeAutorisationById = (codSoc: any, matPers: any): Observable<any[]> => {
+    return this.httpClient.get<any[]>(
+      api + "/conge/getauto/" + codSoc + "/" + matPers
+    );
+  };
+
+
 }

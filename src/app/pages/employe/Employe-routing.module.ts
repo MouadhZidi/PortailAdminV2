@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { GuardauthService } from 'src/app/guard/guardauth.service';
+import { ComptepersComponent } from './comptepers/comptepers.component';
 import { InfopersComponent } from './infopers/infopers.component';
 import { InfoprofComponent } from './infoprof/infoprof.component';
 import { InfosocComponent } from './infosoc/infosoc.component';
@@ -21,7 +22,10 @@ const routes: Routes = [
         component: InfosocComponent,canActivate:[GuardauthService]
     },
     
-
+    {
+        path: 'comptepers',
+        component: ComptepersComponent,canActivate:[GuardauthService]
+    },
   
 ];
 

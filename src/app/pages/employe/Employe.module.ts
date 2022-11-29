@@ -68,7 +68,9 @@ const config: DropzoneConfigInterface = {
     WidgetModule,
     Ng5SliderModule,
     NgSelectModule,
-    NgbPaginationModule
+
+    NgbPaginationModule,
+    
   ],
   providers: [
     {

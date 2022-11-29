@@ -18,7 +18,7 @@ export class CalendarComponent implements OnInit {
   // bread crumb items
   breadCrumbItems: Array<{}>;
 
-  @ViewChild('modalShow') modalShow: TemplateRef<any>;
+ // @ViewChild('modalShow') modalShow: TemplateRef<any>;
   @ViewChild('editmodalShow') editmodalShow: TemplateRef<any>;
 
   formEditData: FormGroup;
@@ -122,10 +122,10 @@ export class CalendarComponent implements OnInit {
   /**
    * Event add modal
    */
-  openModal(event?: any) {
-    this.newEventDate = event;
-    this.modalService.open(this.modalShow);
-  }
+  // openModal(event?: any) {
+  //   this.newEventDate = event;
+  //   this.modalService.open(this.modalShow);
+  // }
 
   /**
    * save edit event data
@@ -198,7 +198,7 @@ export class CalendarComponent implements OnInit {
           selectable: true,
           selectMirror: true,
           dayMaxEvents: true,
-          dateClick: this.openModal.bind(this),
+       //   dateClick: this.openModal.bind(this),
           eventClick: this.handleEventClick.bind(this),
           eventsSet: this.handleEvents.bind(this),
           eventTimeFormat: { // like '14:30:00'
